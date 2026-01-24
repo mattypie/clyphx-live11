@@ -262,6 +262,19 @@ Device actions are track-based and will apply to the device selected on the trac
 
 A device name can also be specified with quotes (i.e. DEV"Auto Filter" RND).
 
+Note that when you put a device inside a rack it becomes a nested device. You can't refer to it by name anymore but you can use the number, with periods to represent nested devices. So if you have
+
+`DEV1 ONOFF`
+
+outside the rack, then when you put it in a rack, the command would have to be
+
+`DEV1.1 ONOFF`
+
+DEV1 now means the rack, and DEV1.1 is the first device in that rack. 
+
+As another example, if I have an instrument rack as DEV1, which has a single chain with an Operator feeding into a Utility, the Operator is DEV1.1, and the Utility is DEV1.1.2
+
+
 | Action | Description | Examples 
 | --- | --- | --- 
 | DEV | Toggle, turn on or turn off Device On/Off switch. | DEV, DEV ON, DEV OFF
